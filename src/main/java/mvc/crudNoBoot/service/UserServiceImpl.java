@@ -3,9 +3,11 @@ package mvc.crudNoBoot.service;
 import mvc.crudNoBoot.dao.UserDao;
 import mvc.crudNoBoot.dao.UserDaoImpl;
 import mvc.crudNoBoot.model.User;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class UserServiceImpl implements UserService{
     UserDao userDao = new UserDaoImpl();
 
