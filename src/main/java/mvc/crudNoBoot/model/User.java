@@ -3,15 +3,15 @@ package mvc.crudNoBoot.model;
 public class User {
     private int id;
     private String name;
-    private String lastame;
+    private String lastname;
     private int age;
 
     public User() {
     }
 
-    public User(String name, String lastame, int age) {
+    public User(String name, String lastname, int age) {
         this.name = name;
-        this.lastame = lastame;
+        this.lastname = lastname;
         this.age = age;
     }
 
@@ -31,12 +31,12 @@ public class User {
         this.name = name;
     }
 
-    public String getLastame() {
-        return lastame;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setLastame(String lastame) {
-        this.lastame = lastame;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
     public int getAge() {
@@ -52,7 +52,7 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", lastame='" + lastame + '\'' +
+                ", lastame='" + lastname + '\'' +
                 ", age=" + age +
                 '}';
     }

@@ -1,17 +1,35 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: taiphing
-  Date: 27.01.2022
-  Time: 23:17
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>USERS</title>
 </head>
 <body>
-    ${user}
-    <h2><a href="/edit">edit page</a> </h2>
+
+<h2>Users</h2>
+<table>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>lastname</th>
+        <th>age</th>
+    </tr>
+    <c:forEach var="user" items="${usersList}">
+        <tr>
+            <td>${user.id}</td>
+            <td>${user.name}</td>
+            <td>${user.lastname}</td>
+            <td>${user.age}</td>
+            <td>
+                <a href="/edit/${user.id}">edit</a>
+                <a href="/delete/${user.id}">delete</a>
+            </td>
+        </tr>
+    </c:forEach>
+</table>
+
+<%--<h2>Add</h2>--%>
+<%--<c:url value="/add" var="add"/>--%>
+<%--<a href="${add}">Add new film</a>--%>
 </body>
 </html>
