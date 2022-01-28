@@ -1,9 +1,20 @@
 package mvc.crudNoBoot.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "users")
 public class User {
+
+    @Id
+    @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column
     private String name;
+    @Column
     private String lastname;
+    @Column
     private int age;
 
     public User() {
