@@ -3,10 +3,8 @@ package mvc.crudNoBoot.service;
 import mvc.crudNoBoot.dao.UserDao;
 import mvc.crudNoBoot.dao.UserDaoImpl;
 import mvc.crudNoBoot.model.User;
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -14,31 +12,39 @@ import java.util.List;
 public class UserServiceImpl implements UserService{
 
     @Autowired
-    UserDao userDao = new UserDaoImpl();
+    private UserDao userDao = new UserDaoImpl();
 
-    @Transactional
+    public UserServiceImpl(UserDao userDao) {
+        this.userDao = userDao;
+    }
+
     @Override
+    @Transactional
     public List<User> allUsers() {
         return userDao.allUsers();
     }
 
-    @Transactional
+
     @Override
+    @Transactional
     public void add(User user) {
         userDao.add(user);
     }
-    @Transactional
+
     @Override
+    @Transactional
     public void delete(User user) {
         userDao.delete(user);
     }
-    @Transactional
     @Override
+    @Transactional
     public void edit(User user) {
         userDao.edit(user);
     }
-    @Transactional
+
+
     @Override
+    @Transactional
     public User getById(int id) {
         return userDao.getById(id);
     }
