@@ -42,17 +42,14 @@ public class UserDaoImpl implements UserDao{
     @Transactional
     @Override
     public void delete(User user) {
-//        em.getTransaction().begin();
-        em.remove(user);
-//        em.getTransaction().commit();
+//        em.remove(user);
+        em.remove(em.contains(user) ? user : em.merge(user));
     }
 
     @Transactional
     @Override
     public void edit(User user) {
-//        em.getTransaction().begin();
         em.merge(user);
-//        em.getTransaction().commit();
     }
 
     @Transactional
